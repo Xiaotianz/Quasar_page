@@ -1,94 +1,186 @@
 <!--
  * @Author: @By.Xiaotian
- * @Date: 2022-07-27 15:58:36
+ * @Date: 2022-08-01 23:51:03
  * @LastEditors: Xiaotian
- * @LastEditTime: 2022-08-01 16:09:55
+ * @LastEditTime: 2022-08-03 22:07:53
  * @Description: 
  * 
 -->
 <template>
-  <!-- <div class="q-pa-md">
-    <q-btn color="primary" class="full-width" label="Full-width" />
+  <div class="login row justify-center items-center full-height full-width">
+      <div class="logos shadow-15 transparent row">
+        <div class="full-width text-h4 text-logo row justify-center items-center" >
+          WebChat
+        </div>
+        <Transition 
+            appear
+            enter-to-class="animate__animated animate__bounceInLeft"
+            leave-to-class="animate__animated animate__bounceOutLeft"
+        >
+        <div class="q-pa-md col-12" v-if="data.registerFlag">
+          <q-form
+            translate-show="slide-right"
+            @submit="onSubmit"
+            @reset="onReset"
+            autocorrect="off"
+            autocapitalize="off"
+            autocomplete="off"
+            spellcheck="false"
+            class="q-gutter-md"
+          >
+            <q-input
+              v-model="data.name"
+              label="用户名123"
+              :rules="[ val => val && val.length > 0 || 'Please type name']"
+            />
 
-    <q-btn color="primary" label="With Tooltip" class="q-mt-md">
-      <q-tooltip class="bg-accent">I'm a tooltip</q-tooltip>
-    </q-btn>
-  </div> -->
-    <!-- <div class="login">{{userStore.name}}</div> -->
-    <!-- <div class="row">
-        <div>First column</div>
-        <div>Second column</div>
-        <div>Third column</div>
-    </div> -->
-    <!-- <div class="row">
-        <div class="col-8">two thirds</div>
-        <div class="col-2">one sixth</div>
-        <div class="col-auto">auto size based on content and available space</div>
-        <div class="col">fills remaining available space</div>
-    </div> -->
+            <q-input
+              v-model="data.password"
+              type="password"
+              label="密码456"
+              :rules="[
+                val => val !== null && val !== '' || 'Please type your password',
+              ]"
+            />
+            <div class="row justify-center">
+              <q-btn label="登录" size="md" style="width: 120px" type="submit" color="primary"/>
+              <q-btn label="注册" @click="" size="md" style="width: 120px" type="reset" color="primary" flat class="q-ml-sm" />
+            </div>
+          </q-form>
+        </div>
+        </Transition>
+
+        <Transition 
+            appear
+            enter-active-class="animate__animated animate__bounceInLeft"
+            leave-active-to-class="animate__animated animate__bounceOutLeft"
+        >
+        <div class="q-pa-md col-12" v-if="!data.registerFlag">
+          <q-form
+            translate-show="slide-right"
+            @submit="onSubmit"
+            @reset="onReset"
+            autocorrect="off"
+            autocapitalize="off"
+            autocomplete="off"
+            spellcheck="false"
+            class="q-gutter-md"
+          >
+            <q-input
+              v-model="data.name"
+              label="用户名"
+              :rules="[ val => val && val.length > 0 || 'Please type name']"
+            />
+
+            <q-input
+              v-model="data.password"
+              type="password"
+              label="密码"
+              :rules="[
+                val => val !== null && val !== '' || 'Please type your password',
+              ]"
+            />
+            <div class="row justify-center">
+              <q-btn label="登录" size="md" style="width: 120px" type="submit" color="primary"/>
+              <q-btn label="注册" @click="" size="md" style="width: 120px" type="reset" color="primary" flat class="q-ml-sm" />
+            </div>
+          </q-form>
+        </div>
+        </Transition>
+        
+        <!-- <Transition 
+            appear
+            enter-active-class="animate__animated animate__bounceInLeft"
+            leave-active-class="animate__animated animate__bounceOutLeft"
+        >
+        <div class="q-pa-md col-12" v-if="!data.registerFlag">
+          <q-form
+            translate-show="slide-right"
+            @submit="onSubmit"
+            @reset="onReset"
+            autocorrect="off"
+            autocapitalize="off"
+            autocomplete="off"
+            spellcheck="false"
+            class="q-gutter-md"
+          >
+            <q-input
+              v-model="data.name"
+              label="用户名123"
+              :rules="[ val => val && val.length > 0 || 'Please type name']"
+            />
+
+            <q-input
+              v-model="data.password"
+              type="password"
+              label="密码456"
+              :rules="[
+                val => val !== null && val !== '' || 'Please type your password',
+              ]"
+            />
+            <div class="row justify-center">
+              <q-btn label="登录" size="md" style="width: 120px" type="submit" color="primary"/>
+              <q-btn label="注册" @click="" size="md" style="width: 120px" type="reset" color="primary" flat class="q-ml-sm" />
+            </div>
+          </q-form>
+        </div>
+        </Transition> -->
+
+
+      </div>
+  </div>
 </template>
-<script lang='ts'>
-import {
-    defineComponent,
-    ComponentInternalInstance,
-    getCurrentInstance,
-    reactive,
-    toRefs,
-    onBeforeMount,
-    onMounted,
-    onBeforeUpdate,
-    onUpdated,    
-    // onBeforeUnmounted, // 组件销毁前
-    // onUnmounted, // 组件销毁
-    // onActiveted, // 条件:<keep-alive>
-    // onDeActiveted, // 条件:<keep-alive>
-    // onErrorCaptured, // 当捕获一个来自子孙组件的异常时激活
-    // onRenderTracked // 跟踪状态变化 返回event所有变化属性
-    // onRenderTriggered // 跟踪状态变化 返回event单个主要变化属性
-    // watch // watch([()=>data.要监听的属性,...监听多个属性],(newValue,oldValue)=>{})
-} from 'vue';
-import {useUserStore} from '@/store/userStore/index'
-import UseCurrentInstance from '@/utils/useCurrentInstance';
+
+<script setup lang="ts">
 import { useQuasar } from 'quasar'
-// 定义接口相关类型
-interface DataProps {
+import { ref, computed,reactive } from 'vue'
+interface DataProps{
+    name:string,
+    password:string,
+    registerFlag:boolean,
+    isInit:boolean,
+    loginFlag:boolean,
+}
+let data:DataProps = reactive({
+    name:"",
+    password:"",
+    registerFlag:false,
+    isInit:true,
+    loginFlag:true,
+})
+
+let onSubmit= ()=>{
+    console.log(data)
+}
+let onReset= ()=>{
 
 }
- 
-export default defineComponent({
-    name: '',
-    components: {},
-    props: {},
-    setup(props) {
-        // const $q = useQuasar()
-        // $q.dark.set(true)
-        const data: DataProps = reactive({})
-        const refData = toRefs(data)
-        onBeforeMount(() => { })
-        // onMounted(() => { 
-        //     let {proxy} = UseCurrentInstance();
-        //     console.log(proxy.$Messages);
-        //     for (let index = 0; index < 5; index++) {
-        //     proxy.$Messages({
-        //         type:"info",
-        //         message:'123'+index,
-        //         color:"positive",
-        //         timeout:5000,
-        //     });
-        //     }
-        // })  
-        onBeforeUpdate(() => { })
-        onUpdated(() => { })
-        const userStore = useUserStore();
-        let change = () =>{
-            userStore.updateName('张三王子')
-        }
-        change();
-        // onRenderTracked((event) => {console.log(event)})
-        // watch([() => data],(newValue,oldValue) => {})
-        return { ...refData,change,userStore }
-    },
-});
+
 </script>
-<style lang='less' scoped >
+
+<style lang="less" scoped>
+[v-cloak] 
+{ 
+display:none;
+}
+.login{
+  background-image: linear-gradient(to right, #fbc2eb, #a6c1ee);
+  .logos{
+    width: 458px;
+    height: 588px;
+    background: white;
+    border-radius: 15px;
+    .text-logo{
+      background-image: linear-gradient(to right, orange, purple);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+  }
+  @media(max-width: 500px) {
+    .logos{
+      width: 330px;
+      height: 458px;
+    }
+  }
+}
 </style>

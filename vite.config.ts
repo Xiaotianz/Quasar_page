@@ -2,7 +2,7 @@
  * @Author: @By.Xiaotian
  * @Date: 2022-07-18 14:32:38
  * @LastEditors: Xiaotian
- * @LastEditTime: 2022-08-01 11:59:06
+ * @LastEditTime: 2022-08-01 23:51:34
  * @Description: 
  * 
  */
@@ -42,7 +42,7 @@ export default defineConfig({
       less:{
         javascriptEnabled: true
       }
-    }
+    },
   },
   
   plugins: [

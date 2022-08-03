@@ -2,7 +2,7 @@
  * @Author: @By.Xiaotian
  * @Date: 2022-07-18 14:32:38
  * @LastEditors: Xiaotian
- * @LastEditTime: 2022-08-01 15:43:13
+ * @LastEditTime: 2022-08-03 21:51:57
  * @Description: 
  * 
  */
@@ -37,18 +37,17 @@ app
     },
     config: {
         brand: {
-          primary: '#a3a300',
+          primary: '#3896e8',
           secondary: '#26A69A',
           accent: '#74b027',
-                
           dark: '#1d1d1d',
           'dark-page': '#121212',
-    
           positive: '#21BA45',
-          negative: '#C10015',
+          negative: 'red',
           info: '#31CCEC',
           warning: '#F2C037'
-        }
+        },
+        animations: 'all'
     },
     lang: langDe
 })
