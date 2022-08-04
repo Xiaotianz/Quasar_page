@@ -2,7 +2,7 @@
  * @Author: @By.Xiaotian
  * @Date: 2022-07-18 14:32:38
  * @LastEditors: Xiaotian
- * @LastEditTime: 2022-08-03 21:51:57
+ * @LastEditTime: 2022-08-04 20:01:49
  * @Description: 
  * 
  */
@@ -21,6 +21,7 @@ import { createPinia } from 'pinia'
 import './assets/font/font.css'
 const pinia = createPinia();
 import langDe from 'quasar/lang/zh-CN'
+import directive from "./common/directive"; 
 import { Message } from './utils/message/message'
 const app = createApp(App);
 // 全局挂载 Message
@@ -30,6 +31,7 @@ app.config.globalProperties.$Messages = Message
 
 app
 .use(router)
+.use(directive)
 .use(pinia)
 .use(Quasar,{
     plugins: {

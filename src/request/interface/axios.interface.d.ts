@@ -2,7 +2,7 @@
  * @Author: @By.Xiaotian
  * @Date: 2022-07-26 11:54:00
  * @LastEditors: Xiaotian
- * @LastEditTime: 2022-07-26 16:11:18
+ * @LastEditTime: 2022-08-04 19:03:13
  * @Description: 
  * 
  */
@@ -27,7 +27,8 @@ interface Hintercept{
 }
 // HRequestConfig 继承 AxiosRequestConfig 并挂载 interceptHooks这个属性 ?表示可选 可以是 Hintercept中的某一个函数 也可以是 undefined
 interface HRequestConfig extends AxiosRequestConfig {
-    interceptHooks?:Hintercept
+    interceptHooks?:Hintercept,
+    headers?: any
 }
 
 export type{

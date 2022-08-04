@@ -1,7 +1,16 @@
+/*
+ * @Author: @By.Xiaotian
+ * @Date: 2022-08-01 22:38:20
+ * @LastEditors: Xiaotian
+ * @LastEditTime: 2022-08-04 19:13:10
+ * @Description: 
+ * 
+ */
 import axios , {AxiosInstance} from 'axios'
 import type { HResponseData,HRequestConfig,Hintercept} from './interface/axios.interface'
-
 // 请求实例
+
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 class HRequest {
     // 定义相关接口及配置
 
@@ -15,7 +24,9 @@ class HRequest {
     // 创建一个axios实例 
     constructor(option:HRequestConfig){
         this.config = option;
+        this.interceptHooks = option.interceptHooks
         this.instance = axios.create(option);
+        this.setupInterceptor();
     }
     // 挂载 自定义拦截器至 axios拦截器中
     setupInterceptor():void{
@@ -30,12 +41,16 @@ class HRequest {
             this.interceptHooks?.responeInterceptorCath
         )
         // 请求拦截 所有请求共同拦截器
-        this.instance.interceptors.request.use((config)=>{
-            return config
-        })
-        this.instance.interceptors.response.use((response)=>{
-            return response
-        })
+        // this.instance.interceptors.request.use((config)=>{
+        //     // if(config.method == 'post'){
+        //     //     // config.headers['Content-Type']
+        //     // }
+        //     return config
+        //     // console.log(config);
+        // })
+        // this.instance.interceptors.response.use((response)=>{
+        //     return response
+        // })
     }
     // 创建一个请求实例
     // 类型参数的作用，T决定AxiosResponse实例中data的类型
@@ -51,9 +66,11 @@ class HRequest {
 
     // 实例请求方法  返回一个Promise
     get<T = any>(config:HRequestConfig):Promise<T>{
+        console.log(config);
         return  this.request({...config,method:'GET'})
     }
     post<T = any>(config:HRequestConfig):Promise<T>{
+        console.log(config);
         return  this.request({...config,method:"POST"})
     }
     put<T = any>(config:HRequestConfig):Promise<T>{

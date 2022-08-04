@@ -2,17 +2,29 @@
  * @Author: @By.Xiaotian
  * @Date: 2022-08-01 14:46:43
  * @LastEditors: Xiaotian
- * @LastEditTime: 2022-08-01 15:10:59
+ * @LastEditTime: 2022-08-04 17:45:06
  * @Description: 
  * 
  */
 import { Notify } from 'quasar'
 
 interface InterfaceNotify {
-    type:string,  // 类型 'positive', 'negative', 'warning', 'info', 'ongoing'
+    type?:string,  // 类型 'positive', 'negative', 'warning', 'info', 'ongoing','secondary' ,'accent'
     message:string,   // 消息体
 
-    color?:string,     // 组件颜色
+    color?:string,     // 组件颜色 
+    /**
+     *    primary: '#3896e8',
+          secondary: '#26A69A',
+          accent: '#74b027',
+          dark: '#1d1d1d',
+          'dark-page': '#121212',
+          positive: '#21BA45',
+          negative: 'red',
+          info: '#31CCEC',
+          warning: '#F2C037'
+     * 
+     */
     textColor?:string,  // 文字颜色
     position?:string,  // 弹窗定位   top-left top-right bottom-left bottom-right top bottom left right center
     closeBtn?:boolean | string,  // close 按钮配置
@@ -24,10 +36,11 @@ interface InterfaceNotify {
 }
 
 export function Message(params:InterfaceNotify):void{
+
     let defaults:object = {
-        type:params.type,
+        type:params.type || 'accent',
         message:params.message,
-        color:params.color || 'primary',
+        color:params.type || 'accent',
         textColor:params.textColor || 'white',
         position:params.position || 'top-right',
         closeBtn:params.closeBtn,

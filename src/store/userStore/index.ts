@@ -3,7 +3,7 @@ import type {userInfo} from './index.d'
 let userInfo:userInfo = {
   active:"",
   id:123,
-  name:"aqasd"
+  email:""
 }
 export const useUserStore = defineStore({
   id: 'user', // id必填，且需要唯一
@@ -15,8 +15,8 @@ export const useUserStore = defineStore({
     return userInfo
   },
   actions: {
-    updateName(name:string) {
-        this.name = name;
+    updateUserInfo(updateUserInfo:string) {
+        this.email = updateUserInfo;
     }
   },
   getters: {}
