@@ -16,6 +16,7 @@
     "mockjs": "^1.1.0",
     "pinia": "^2.0.16",
     "pinia-plugin-persist": "^1.0.0",
+    "pinia-plugin-persistedstate": "^2.1.0",
     "postcss-plugin-px2rem": "^0.8.1",
     "quasar": "^2.7.5",
     "vite-plugin-mock": "^2.9.6",

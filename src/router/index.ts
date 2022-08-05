@@ -2,7 +2,7 @@
  * @Author: @By.Xiaotian
  * @Date: 2022-07-26 16:34:36
  * @LastEditors: Xiaotian
- * @LastEditTime: 2022-08-01 23:51:23
+ * @LastEditTime: 2022-08-05 16:15:40
  * @Description: 
  * 
  */
@@ -21,7 +21,25 @@ const routes: RouteRecordRaw[] = [
     {
         path: '/main',
         name: 'main',
-        component: () => import("../view/main.vue") //一定要有.vue后缀
+        redirect:"/main/message",
+        component: () => import("../view/layout/layout.vue"), //一定要有.vue后缀
+        children:[
+            {
+                path:"/main/message",
+                name:"mainMessage",
+                component:()=>import("../view/message.vue")
+            },
+            {
+                path:"/main/contact",
+                name:"mainContact",
+                component:()=>import('../view/contact.vue')
+            },
+            {
+                path:"/main/groupchat",
+                name:"mainGroupchat",
+                component:()=>import('../view/groupchat.vue')
+            }
+        ]
     },
 ]
 

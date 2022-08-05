@@ -1,0 +1,37 @@
+{
+  "id": "3569940",
+  "name": "webchat",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "12683585",
+      "name": "多人协作",
+      "font_class": "icon_duorenxiezuo",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "1276831",
+      "name": "消息",
+      "font_class": "xiaoxi",
+      "unicode": "e67a",
+      "unicode_decimal": 59002
+    },
+    {
+      "icon_id": "9809628",
+      "name": "我的联系人",
+      "font_class": "wodelianxiren",
+      "unicode": "e654",
+      "unicode_decimal": 58964
+    },
+    {
+      "icon_id": "17814569",
+      "name": "群聊1",
+      "font_class": "qunliao1",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    }
+  ]
+}

@@ -2,7 +2,7 @@
  * @Author: @By.Xiaotian
  * @Date: 2022-07-18 14:32:38
  * @LastEditors: Xiaotian
- * @LastEditTime: 2022-08-04 20:01:49
+ * @LastEditTime: 2022-08-05 15:45:24
  * @Description: 
  * 
  */
@@ -19,7 +19,10 @@ import App from './App.vue'
 import router from '@/router/index'
 import { createPinia } from 'pinia'
 import './assets/font/font.css'
+import './assets/iconfont/iconfont.css'
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 const pinia = createPinia();
+pinia.use(piniaPluginPersistedstate);
 import langDe from 'quasar/lang/zh-CN'
 import directive from "./common/directive"; 
 import { Message } from './utils/message/message'

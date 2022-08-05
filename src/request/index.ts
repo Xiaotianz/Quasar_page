@@ -2,7 +2,7 @@
  * @Author: @By.Xiaotian
  * @Date: 2022-08-01 22:38:20
  * @LastEditors: Xiaotian
- * @LastEditTime: 2022-08-04 19:12:01
+ * @LastEditTime: 2022-08-05 13:21:21
  * @Description: 
  * 
  */
@@ -18,12 +18,13 @@ const httpRequest = new HRequest({
     interceptHooks:{
         requestInterceptor:(config:HRequestConfig)=>{
             // console.log(config.headers['']);
-            // if(config.method == 'post'){
-            //     config.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+            // let api:Array<string> = ['/api/basis/ver_email','/api/basis/register','/api/basis/login'];
+            // let token = window.localStorage.getItem('token');
+            // if(token){
+            //     if(!api.includes(config.url ?? '')){
+            //         config.headers.Authorization = 'Bearer ' + token
+            //     }
             // }
-            // config.headers.Authorization =`Bearer ${123}`
-            // console.log(config);
-            // debugger;
             return config
         },
         responeInterceptor:(response)=>{

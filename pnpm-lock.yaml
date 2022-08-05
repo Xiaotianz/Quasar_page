@@ -12,6 +12,7 @@ specifiers:
   mockjs: ^1.1.0
   pinia: ^2.0.16
   pinia-plugin-persist: ^1.0.0
+  pinia-plugin-persistedstate: ^2.1.0
   postcss-plugin-px2rem: ^0.8.1
   quasar: ^2.7.5
   sass: 1.32.12
@@ -32,6 +33,7 @@ dependencies:
   mockjs: registry.npmmirror.com/mockjs/1.1.0
   pinia: registry.npmmirror.com/pinia/2.0.17_j6bzmzd4ujpabbp5objtwxyjp4
   pinia-plugin-persist: registry.npmmirror.com/pinia-plugin-persist/1.0.0_pinia@2.0.17+vue@3.2.37
+  pinia-plugin-persistedstate: 2.1.0_pinia@2.0.17
   postcss-plugin-px2rem: 0.8.1
   quasar: registry.npmmirror.com/quasar/2.7.5
   vite-plugin-mock: registry.npmmirror.com/vite-plugin-mock/2.9.6_mockjs@1.1.0+vite@3.0.3
@@ -317,6 +319,17 @@ packages:
     transitivePeerDependencies:
       - supports-color
     optional: true
+
+  /pinia-plugin-persistedstate/2.1.0_pinia@2.0.17:
+    resolution: {integrity: sha512-qqFWulmvt2r07JqVwud+q9RyRgJrXQmu5pFtXogsV1Z1kHN1H5hxZfMmbezK6VpPPLTSnQ/dXd9c7NRc4Lfk9Q==}
+    peerDependencies:
+      pinia: ^2.0.0
+    peerDependenciesMeta:
+      pinia:
+        optional: true
+    dependencies:
+      pinia: registry.npmmirror.com/pinia/2.0.17_j6bzmzd4ujpabbp5objtwxyjp4
+    dev: false
 
   /postcss-plugin-px2rem/0.8.1:
     resolution: {integrity: sha512-gNxhrnR57pnGrPLLqVNWY9+BWgj46kYkphw+0gpRJf9tjgwI7/tLqQPK7KdlksB2SSAddOb11otDVwri8b8mXw==}

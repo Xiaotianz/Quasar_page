@@ -9,9 +9,6 @@ interface userInfo {
     city?:string,
     district?:string,
     avatar?:string,
-    createDate?:string,
-    updateDate?:string,
-
 }
 
 export type {
